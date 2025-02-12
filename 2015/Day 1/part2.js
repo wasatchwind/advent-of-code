@@ -14,7 +14,7 @@ file.addEventListener('change', (event) => {
 
     // Itereate over each character of the input string by index
     for (let charIndex = 0; charIndex < puzzleInput.length; charIndex++) {
-      // Only chars are '(' to go up a floor or ')' to go down a floor
+      // Only options are either '(' to go up one floor or ')' to go down one floor
       floor = puzzleInput[charIndex] === '(' ? floor += 1 : floor -= 1
 
       // When floor is -1 Santa has gone into the basement
