@@ -15,7 +15,7 @@ file.addEventListener('change', (event) => {
 
     for (const currentDimension of presentDimensions) {
 
-      // Use regular expression to find Length, Width, and Height
+      // Use regular expression to set Length, Width, and Height
       const [L, W, H] = currentDimension.match(/\d{1,2}/g).map(Number)
       
       const extraLength = Math.min(L * W, W * H, H * L)
