@@ -1,24 +1,17 @@
 'use strict'
-const file = document.getElementById('input')
+// Use event listener to execute JS after puzzle input is received via text file
+document.addEventListener('puzzleInputLoaded', () => {
 
-file.addEventListener('change', (event) => {
-  const fileText = event.target.files[0]
-  const reader = new FileReader()
-  reader.readAsText(fileText)
-  reader.onload = (load) => {
-    const puzzleInput = load.target.result
+  // Day 1 Part 1 answer: 138
+  let floor = 0
 
-    // -----------------------------------------------------------------------------------------
-    // Day 1 Part 1: 138 (https://adventofcode.com/2015)
-    let floor = 0
+  // Loop through each character of the input string
+  for (const char of puzzleInput) {
 
-    // Iterate over each character of the input string
-    for (const char of puzzleInput) {
-      // Only 2 characters possible, '(' and ')' for up/down one floor at a time
-      floor = char === '(' ? floor += 1 : floor -= 1
-    }
-    
-    console.log(`Santa's target floor is:`, floor)
-    // -----------------------------------------------------------------------------------------
+    // Only 2 options: '(' to go up one floor or ')' to go down one floor
+    floor = char === '(' ? floor += 1 : floor -= 1
   }
+
+  console.log(`Santa's target floor is:`, floor)
+  document.getElementById('answer').innerText = floor
 })
