@@ -1,7 +1,28 @@
 <html>
-  <body>
-    <p>Advent of Code 2015</p>
-    <input type="file" id="input">
-    <script src="main.js"></script>
-  </body>
+
+<body style="background-color: black; color: white;">
+  <p>Advent of Code 2015</p>
+  <input type="file" id="input">
+
+  <script>
+    'use strict'
+    let puzzleInput
+    const file = document.getElementById('input')
+
+    file.addEventListener('change', (event) => {
+      const fileText = event.target.files[0]
+      const reader = new FileReader()
+      reader.readAsText(fileText)
+      reader.onload = (load) => {
+        puzzleInput = load.target.result
+        document.dispatchEvent(new Event('puzzleInputLoaded'))
+      }
+    })
+  </script>
+  <p>Answer:</p>
+  <p style="font-weight: bold; color: greenyellow;" id="answer"></p>
+
+  <script src="main.js"></script>
+</body>
+
 </html>
