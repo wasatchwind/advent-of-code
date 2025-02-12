@@ -1,8 +1,8 @@
 'use strict'
-// Day 2 Part 2 answer: 3842356
 // Use event listener to execute JS after puzzle input is received via text file
 document.addEventListener('puzzleInputLoaded', () => {
 
+  // Day 2 Part 2 answer: 3842356
   // Split text into individual lines, each line the length, width, and height of a present
   const presentDimensions = puzzleInput.split('\n')
   let totalsqft = 0
