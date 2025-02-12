@@ -9,7 +9,7 @@ file.addEventListener('change', (event) => {
     const puzzleInput = load.target.result
 
     // -----------------------------------------------------------------------------------------
-    // Day 1 Part 1: 138 (https://adventofcode.com/2015/day/1)
+    // Day 1 Part 1: 138 (https://adventofcode.com/2015)
     let floor = 0
 
     // Iterate over each character of the input string
