@@ -12,9 +12,9 @@ file.addEventListener('change', (event) => {
     // Day 1 Part 1: 138 (https://adventofcode.com/2015/day/1)
     let floor = 0
 
-    // iterate over each character of the input string
+    // Iterate over each character of the input string
     for (const char of puzzleInput) {
-      // only 2 characters possible, '(' and ')' for up/down one floor at a time
+      // Only 2 characters possible, '(' and ')' for up/down one floor at a time
       floor = char === '(' ? floor += 1 : floor -= 1
     }
     
