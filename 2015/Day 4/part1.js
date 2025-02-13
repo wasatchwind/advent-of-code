@@ -7,7 +7,7 @@ document.addEventListener('puzzleInputLoaded', () => {
   // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
   
   let md5Hash = ''
-  let counter = -1 // -1 since counter is immedated incremented in the while loop
+  let counter = -1 // -1 since counter is immediately incremented in the while loop
 
   // Continue loop until the first (lowest) positive number is found that produces the hash when combined with the key (input)
   while (md5Hash.slice(0, 5) !== '00000') {
