@@ -1,4 +1,3 @@
-
 'use strict'
 // Use event listener to execute JS after puzzle input is received via text file
 document.addEventListener('puzzleInputLoaded', () => {
