@@ -2,9 +2,9 @@
 // Use event listener to execute JS after puzzle input is received via text file
 document.addEventListener('puzzleInputLoaded', () => {
 
-  // // Day 4 Part 2 answer: 1038736
-  // // NOTE! Must add this script to the HTML file to enable CryptoJS:
-  // // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  // Day 4 Part 2 answer: 1038736
+  // NOTE! Must add this script to the HTML file to enable CryptoJS:
+  // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
   
   let md5HashPrefix = ''
   let counter = -1 // -1 since counter is immediately incremented in the while loop
