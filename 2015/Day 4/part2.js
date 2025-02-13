@@ -11,7 +11,7 @@ document.addEventListener('puzzleInputLoaded', () => {
   let counter = -1 // -1 since counter is immediately incremented in the while loop
 
   // Continue loop until the first (lowest) positive number is found that produces the hash when combined with the key (input)
-  // Increased speed/efficiency from part 1 by slicing the Hash when it's calculated instead of storing the entire Hash
+  // Increased speed/efficiency from part 1 by slicing the hash when it's calculated instead of storing the entire hash
   while (md5HashPrefix !== '000000') {
     counter++
     md5HashPrefix = CryptoJS.MD5(puzzleInput + counter).toString().slice(0, 6)
