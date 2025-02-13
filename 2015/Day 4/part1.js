@@ -9,11 +9,11 @@ document.addEventListener('puzzleInputLoaded', () => {
   let md5Hash = ''
   let counter = -1 // -1 since counter is immedated incremented in the while loop
 
-  // Continue looping until the first hash beginning with five zeros is found
+  // Continue loop until the first (lowest) positive number is found that produces the hash when combined with the key (input)
   while (md5Hash.slice(0, 5) !== '00000') {
     counter++
     md5Hash = CryptoJS.MD5(puzzleInput + counter).toString()
   }
-  console.log('The first hash starting with five zeros is', counter)
+  console.log('The lowest positive number is', counter)
   document.getElementById('answer').innerText = counter
 })
