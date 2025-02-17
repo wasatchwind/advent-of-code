@@ -34,9 +34,6 @@ document.addEventListener('puzzleInputLoaded', () => {
     }
   }
 
-  console.log('The signal on wire "a" is', wires['a'])
-  document.getElementById('answer').innerText = wires['a']
-
   // Function to check if the instruction is ready and execute it if so
   function tryInstruction({ action, wire1, wire2, destinationWire }) {
     const wire1Ready = !wire1 || !isNaN(wire1) || wires.hasOwnProperty(wire1)
@@ -64,4 +61,7 @@ document.addEventListener('puzzleInputLoaded', () => {
       case 'RSHIFT': return value1 >> value2
     }
   }
+
+  document.getElementById('answer').innerText = wires['a']
+  console.log('The signal on wire "a" is', wires['a'])
 })
