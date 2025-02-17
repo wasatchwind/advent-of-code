@@ -3,6 +3,7 @@
 document.addEventListener('puzzleInputLoaded', () => {
 
   // Day 3 Part 2 answer: 2360
+  
   // Declare x and y coordinates for Santa and Robo-Santa on a 2D grid
   let [santaX, santaY] = [0, 0]
   let [robotX, robotY] = [0, 0]
