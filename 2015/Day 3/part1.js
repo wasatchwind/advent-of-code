@@ -3,6 +3,7 @@
 document.addEventListener('puzzleInputLoaded', () => {
 
   // Day 3 Part 1 answer: 2592
+  
   // Declare x and y coordinates for a 2D grid
   let x = 0, y = 0
 
