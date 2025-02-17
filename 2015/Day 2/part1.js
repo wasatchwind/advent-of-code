@@ -19,6 +19,7 @@ document.addEventListener('puzzleInputLoaded', () => {
 
     totalsqft += surfaceArea + extraLength
   }
-  console.log('Total feet of ribbon needed:', totalsqft)
+  
   document.getElementById('answer').innerText = totalsqft
+  console.log('Total feet of ribbon needed:', totalsqft)
 })
