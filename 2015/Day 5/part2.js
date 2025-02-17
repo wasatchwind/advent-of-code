@@ -18,8 +18,6 @@ document.addEventListener('puzzleInputLoaded', () => {
     // If both rules are met, increment count of 'nice' strings
     if (rule1 && rule2) niceStrings++
   }
-  console.log('Count of "nice" strings:', niceStrings)
-  document.getElementById('answer').innerText = niceStrings
 
   // Function to evaluate each string for rule 1
   function checkRule1(string) {
@@ -47,4 +45,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     }
     return false
   }
+
+  document.getElementById('answer').innerText = niceStrings
+  console.log('Count of "nice" strings:', niceStrings)
 })
