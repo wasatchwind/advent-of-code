@@ -5,7 +5,7 @@ document.addEventListener('puzzleInputLoaded', () => {
   // Day 8 Part 1 answer: 1371
 
   // Split text into individual lines, each line a string to be evaluated
-  const strings = puzzleInput.split('\n').map(item => item.trim())
+  const strings = puzzleInput.split('\n').map(line => line.trim())
   let originalLength = 0
   let inMemoryLength = 0
 
