@@ -32,9 +32,6 @@ document.addEventListener('puzzleInputLoaded', () => {
   // After executing all instructions count all lights that are on in the entire grid
   const lightsCount = grid.flatMap(row => row).filter(cell => cell).length
 
-  console.log('Count of lit lights', lightsCount)
-  document.getElementById('answer').innerText = lightsCount
-
   // Function to update the grid sub-area per specific instruction action
   function updateGrid(action, [startCol, startRow, endCol, endRow]) {
     for (let row = startRow; row <= endRow; row++) {
@@ -45,4 +42,7 @@ document.addEventListener('puzzleInputLoaded', () => {
       }
     }
   }
+
+  document.getElementById('answer').innerText = lightsCount
+  console.log('Count of lit lights', lightsCount)
 })
