@@ -32,7 +32,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     }
     return memoryLength
   }
-})
 
-document.getElementById('answer').innerText = originalLength - inMemoryLength
-console.log('The total number of characters is', originalLength - inMemoryLength)
+  document.getElementById('answer').innerText = originalLength - inMemoryLength
+  console.log('The total number of characters is', originalLength - inMemoryLength)
+})
