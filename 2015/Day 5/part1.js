@@ -5,7 +5,7 @@ document.addEventListener('puzzleInputLoaded', () => {
   // Day 5 Part 1 answer: 238
   
   // Split text into individual lines, each line a string to evaluate as naughty or nice
-  const strings = puzzleInput.split('\n').map(item => item.trim())
+  const strings = puzzleInput.split('\n').map(line => line.trim())
   let niceStrings = 0
 
   // Loop through each string
