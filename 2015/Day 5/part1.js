@@ -26,6 +26,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     // If all rules are met, increment count of 'nice' strings
     if (vowels && doubleLetters && !omitPairs) niceStrings++
   }
-  console.log('Count of "nice" strings:', niceStrings)
+
   document.getElementById('answer').innerText = niceStrings
+  console.log('Count of "nice" strings:', niceStrings)
 })
