@@ -32,9 +32,6 @@ document.addEventListener('puzzleInputLoaded', () => {
   // After executing all instructions sum all values in the entire grid
   const totalBrightness = grid.flat().reduce((sum, brightness) => sum + brightness, 0)
 
-  console.log('Total brightness is', totalBrightness)
-  document.getElementById('answer').innerText =totalBrightness
-
   // Function to update the grid sub-area per specific instruction action
   // Individual lights have number values in part 2 instead of just on/off as in part 1
   function updateGrid(action, [startCol, startRow, endCol, endRow]) {
@@ -46,4 +43,7 @@ document.addEventListener('puzzleInputLoaded', () => {
       }
     }
   }
+
+  document.getElementById('answer').innerText = totalBrightness
+  console.log('Total brightness is', totalBrightness)
 })
