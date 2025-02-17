@@ -16,9 +16,6 @@ document.addEventListener('puzzleInputLoaded', () => {
     inMemoryLength += calculateMemoryLength(string.slice(1, -1))
   }
 
-  console.log('The total number of characters is', originalLength - inMemoryLength)
-  document.getElementById('answer').innerText = originalLength - inMemoryLength
-
   // Function to calculate string length in memory
   function calculateMemoryLength(coreString) {
     let memoryLength = 0
@@ -36,3 +33,6 @@ document.addEventListener('puzzleInputLoaded', () => {
     return memoryLength
   }
 })
+
+document.getElementById('answer').innerText = originalLength - inMemoryLength
+console.log('The total number of characters is', originalLength - inMemoryLength)
