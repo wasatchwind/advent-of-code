@@ -16,9 +16,6 @@ document.addEventListener('puzzleInputLoaded', () => {
     encodedLength += calculateEncodedLength(string.slice(1, -1))
   }
 
-  console.log('The total number of characters is', encodedLength - originalLength)
-  document.getElementById('answer').innerText = encodedLength - originalLength
-
   // Function to calculate encoded string length
   function calculateEncodedLength(string) {
     let result = '"' + '\\' + '"' // Replace the removed starting quote with appropriate escape
@@ -39,4 +36,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     result += '\\""' // Replace the removed ending quote with appropriate escape
     return result.length
   }
+
+  document.getElementById('answer').innerText = encodedLength - originalLength
+  console.log('The total number of characters is', encodedLength - originalLength)
 })
