@@ -4,7 +4,7 @@ document.addEventListener('puzzleInputLoaded', () => {
 
   // Day 2 Part 2 answer: 3842356
   // Split text into individual lines, each line the length, width, and height of a present
-  const presentDimensions = puzzleInput.split('\n')
+  const presentDimensions = puzzleInput.split('\n').map(item => item.trim())
   let totalsqft = 0
 
   // Loop through each present
