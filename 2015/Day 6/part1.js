@@ -3,6 +3,7 @@
 document.addEventListener('puzzleInputLoaded', () => {
 
   // Day 6 Part 1 answer: 377891
+  
   // Split text into individual lines, each line an instruction to modify the lights grid
   const instructions = puzzleInput.split('\n').map(item => item.trim())
 
