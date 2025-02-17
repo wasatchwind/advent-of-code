@@ -32,6 +32,7 @@ document.addEventListener('puzzleInputLoaded', () => {
       visited.add(`${robotX},${robotY}`)
     }
   }
-  console.log('Houses receiving at least one present:', visited.size)
+  
   document.getElementById('answer').innerText = visited.size
+  console.log('Houses receiving at least one present:', visited.size)
 })
