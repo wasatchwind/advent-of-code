@@ -12,6 +12,6 @@ document.addEventListener('puzzleInputLoaded', () => {
     floor = char === '(' ? floor += 1 : floor -= 1
   }
 
-  console.log(`Santa's target floor is:`, floor)
   document.getElementById('answer').innerText = floor
+  console.log(`Santa's target floor is:`, floor)
 })
