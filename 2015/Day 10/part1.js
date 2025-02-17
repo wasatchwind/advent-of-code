@@ -3,6 +3,7 @@
 document.addEventListener('puzzleInputLoaded', () => {
 
   // Day 10 Part 1 answer: 360154
+  
   let sequence = puzzleInput
   const steps = 40
 
