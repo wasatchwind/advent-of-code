@@ -3,6 +3,7 @@
 document.addEventListener('puzzleInputLoaded', () => {
 
   // Day 4 Part 1 answer: 254575
+  
   // NOTE! Must enable CryptoJS in the HTML file:
   // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
   
