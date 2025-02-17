@@ -16,6 +16,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     counter++
     md5HashPrefix = CryptoJS.MD5(puzzleInput + counter).toString().slice(0, 6)
   }
-  console.log('The lowest positive number is', counter)
+
   document.getElementById('answer').innerText = counter
+  console.log('The lowest positive number is', counter)
 })
