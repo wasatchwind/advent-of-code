@@ -4,7 +4,7 @@ document.addEventListener('puzzleInputLoaded', () => {
 
   // Day 6 Part 2 answer: 14110788
   // Split text into individual lines, each line an instruction to modify the lights grid
-  const instructions = puzzleInput.split('\n')
+  const instructions = puzzleInput.split('\n').map(item => item.trim())
 
   // Set up a 1000x1000 true/false 2D grid and set all to start/default of zero
   const grid = []
