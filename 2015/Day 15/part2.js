@@ -71,3 +71,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     }
     return combinations
   }
+
+  document.getElementById('answer').innerText = highScore
+  console.log('The total score of the highest scoring cookie is', highScore)
+})
