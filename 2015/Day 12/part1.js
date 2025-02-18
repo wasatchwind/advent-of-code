@@ -8,11 +8,12 @@ document.addEventListener('puzzleInputLoaded', () => {
   let total = 0
   traverseObject(json)
 
+  // Recursive function to traverse all parts of the puzzle input
   function traverseObject(json) {
     for (const value of Object.values(json)) {
       if (typeof value === 'number') total += value
 
-      // If value exists and is an object (includes arrays), recurse
+      // If value exists and is an object (includes arrays) continue recursion
       if (value && typeof value === 'object') traverseObject(value)
     }
   }
