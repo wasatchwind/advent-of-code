@@ -2,7 +2,7 @@
 // Use event listener to execute JS after puzzle input is received via text file
 document.addEventListener('puzzleInputLoaded', () => {
 
-  // Day 134 Part 2 answer: 1084
+  // Day 14 Part 2 answer: 1084
 
   // Process input text line by line into an array of arrays
   const reindeerStats = puzzleInput.split('\n').map(line => line.trim()).map(line => line.split(' '))
