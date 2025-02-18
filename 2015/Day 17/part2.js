@@ -9,7 +9,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     .map(line => line.trim())
     .filter(line => line !== '')
     .map(Number)
-    .sort((a, b) => b - a)
+    .sort((a, b) => b - a) // Starting with sorted large to small seems to speed things up
 
   const targetCapacity = 150
   const combinations = []
