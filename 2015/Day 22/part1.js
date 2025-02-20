@@ -15,8 +15,7 @@ document.addEventListener('puzzleInputLoaded', () => {
   // Function to update battle state each new turn (player and boss)
   // Recursion ensures every possible sequence of valid spells is explored
   function battle(currentState) {
-
-
+    
     spellEffects(currentState) // Apply spell effects at the start of every turn (player and boss)
 
     if (currentState.bossHP <= 0) { // If boss killed/player wins record mana spent
