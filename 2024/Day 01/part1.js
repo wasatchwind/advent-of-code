@@ -13,7 +13,7 @@ document.addEventListener('puzzleInputLoaded', () => {
 
   let total = 0
 
-  // Loop through all rows and sum the distance between list elements (absolute value) into total
+  // Loop through all rows and sum the distance between list1 and list2 elements (absolute value) into total
   for (let i = 0; i < lists.length; i++) {
     total += Math.abs(list1[i] - list2[i])
   }
