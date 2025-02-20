@@ -4,15 +4,15 @@ document.addEventListener('puzzleInputLoaded', () => {
 
   // Day 25 Part 1 answer: 2650453
 
-  // Parse puzzle input into row and column numbers
+  // Parse puzzle input into row and column numbers (assumed row & column are 4 digit numbers)
   const input = puzzleInput.match(/\d{4}/g).map(item => Number(item))
   const codeCoords = { 'row': input[0], 'col': input[1] }
   
-  // Since the sequence order uses Cantor's diagonal arguement, a formula can be used
+  // The sequence order uses Cantor's diagonal arguement (triangular numbers), a formula can be used
   // to find the position (order number, not code itself) at row 1 and the target column (3083): 4753986
   const orderNumAtRow1TargetCol = (codeCoords.col * (codeCoords.col + 1)) / 2
 
-  // Knowing the order number at row 1, col 3083, now can traverse down the column with a formula
+  // The order number at the top of column 3083 enables moving down the column via formula to row 2978
   // to find the position (order number, not code itself) at target row, col (2978, 3083): 18361853
   const orderNumAtTarget = orderNumAtRow1TargetCol + (codeCoords.row - 1) * codeCoords.col + (codeCoords.row - 1) * (codeCoords.row - 2) / 2
   
