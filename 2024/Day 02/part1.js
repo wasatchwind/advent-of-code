@@ -12,6 +12,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     if (isSafe(report)) total++
   }
 
+  // Function to check each report for rule compliance
   function isSafe(report) {
 
     // Immediately return false if rules are not met on the first two numbers
