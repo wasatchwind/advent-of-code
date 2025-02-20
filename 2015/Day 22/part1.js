@@ -13,8 +13,10 @@ document.addEventListener('puzzleInputLoaded', () => {
   battle(resetState()) // Begin the battle
 
   // Function to update battle state each new turn (player and boss)
-  // Recursion ensures every possible sequence of valid spells is explorred
+  // Recursion ensures every possible sequence of valid spells is explored
   function battle(currentState) {
+
+
     spellEffects(currentState) // Apply spell effects at the start of every turn (player and boss)
 
     if (currentState.bossHP <= 0) { // If boss killed/player wins record mana spent
@@ -29,24 +31,24 @@ document.addEventListener('puzzleInputLoaded', () => {
     // different spells result in different game states, leading to various possible outcomes
 
     // Cast Drain (no timer, immediate effect)
-    cast(currentState, 'Drain', 73, (newState) => {
+    cast(currentState, 73, (newState) => {
       newState.playerHP += 2
       newState.bossHP -= 2
     })
     // Cast Magic Missile (no timer, immediate effect)
-    cast(currentState, 'Magic Missile', 53, (newState) => {
+    cast(currentState, 53, (newState) => {
       newState.bossHP -= 4
     })
     // Cast Poison
-    cast(currentState, 'Poison', 173, (newState) => {
+    cast(currentState, 173, (newState) => {
       if (currentState.poisonDuration === 0) newState.poisonDuration = 6 // Reset timer
     })
     // Cast Recharge
-    cast(currentState, 'Recharge', 229, (newState) => {
+    cast(currentState, 229, (newState) => {
       if (currentState.rechargeDuration === 0) newState.rechargeDuration = 5 // Reset timer
     })
     // Cast Shield
-    cast(currentState, 'Shield', 113, (newState) => {
+    cast(currentState, 113, (newState) => {
       if (currentState.shieldDuration === 0) newState.shieldDuration = 6 // Reset timer
     })
   }
@@ -71,7 +73,7 @@ document.addEventListener('puzzleInputLoaded', () => {
 
   // Function to cast a spell and update battle state
   // 'applyEffects' is a function that updates battle state
-  function cast(currentState, spellName, manaCost, applyEffects) {
+  function cast(currentState, manaCost, applyEffects) {
     if (currentState.playerMana < manaCost) return // Not enough mana to cast the spell
 
     const newState = {
@@ -79,10 +81,6 @@ document.addEventListener('puzzleInputLoaded', () => {
       playerMana: currentState.playerMana - manaCost,
       manaSpent: currentState.manaSpent + manaCost
     }
-
-    // The first character of each spell name is recorded in 'actions' to track battle sequence
-    // D: Drain, M: Magic Missile, P: Poison, R: Recharge, S: Shield
-    newState.actions += spellName.charAt(0)
 
     applyEffects(newState)
 
@@ -124,7 +122,6 @@ document.addEventListener('puzzleInputLoaded', () => {
   // Function to reset player, boss, and spells to starting/default status
   function resetState() {
     return {
-      actions: '',
       playerHP: 50,
       playerMana: 500,
       manaSpent: 0,
