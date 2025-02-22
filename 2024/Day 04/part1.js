@@ -15,7 +15,7 @@ document.addEventListener('puzzleInputLoaded', () => {
 
   // Each function below scans the 2D grid for a matching forward or reverse XMAS string
   // in all possible configurations, and counts toward a total if found. While there is some
-  // redundancy across each function, I think the code is easier to read this way.
+  // redundancy across each function, the code is easy to read this way.
   function scanHorizontal(lines) {
     for (const row of lines) {
       for (let i = 0; i < row.length - 3; i++) {
