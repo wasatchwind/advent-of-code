@@ -83,7 +83,7 @@ document.addEventListener('puzzleInputLoaded', () => {
         guardDirection = guardDirection === 3 ? 0 : guardDirection += 1
       }
 
-      else return false // If no conditions are met, the guard has left the grid and the loop ends
+      else return false // Final else statement; at this point the guard has left the grid and the loop ends
       return true // Guard still on grid and movements/turns made/recorded
     }
   }
