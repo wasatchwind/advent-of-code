@@ -9,7 +9,7 @@ document.addEventListener('puzzleInputLoaded', () => {
 
   const gridLength = baseMap.length
   const gridWidth = baseMap[0].length
-  const allVisitedCoordinates = new Set() // Set() only tracks uniquely visited coordinates
+  const allVisitedCoordinates = new Set() // Set() tracks only uniquely visited coordinates
 
   // Function findStartCoordinates() looks for a unique character that indicates the starting position
   // and direction of the guard. To mitigate all possible directions, a regular expression looks
@@ -17,25 +17,24 @@ document.addEventListener('puzzleInputLoaded', () => {
   let guardCoordinates = findStartCoordinates()
   allVisitedCoordinates.add(JSON.stringify(guardCoordinates)) // Add the starting coordinates to the Set
 
-  // IIFE to check the character at the starting coordinatesand assign a number accordingly
+  // Anonymous IIFE to check the character at the starting coordinates and assign a number accordingly
   // for easy sequential incrementation as the guard always turns right at an obstacle.
   let guardDirection = (() => {
-    switch(baseMap[guardCoordinates.col][guardCoordinates.row]) {
+    switch(baseMap[guardCoordinates.row][guardCoordinates.col]) {
       case '^':
         return 0 // North/Up
       case '>':
         return 1 // East/Right
       case 'v':
         return 2 // South/Down
-      case '<':
-        return 3 // West/Left
       default:
-        return null // Not possible with correct puzzle input
+        return 3 // West/Left (the only possible option left is the default)
     }
   })()
 
-  // While guard is on the map continue moving and turning at obstacles
   let guardOnMap = true
+
+  // While guard is on the map continue moving and turning at obstacles
   while (guardOnMap) {
     guardOnMap = updateGuard()
   }
@@ -46,35 +45,35 @@ document.addEventListener('puzzleInputLoaded', () => {
       const regex = new RegExp(/[\^v<>]/)
       for (let y = 0; y < row.length; y++) {
         if (regex.test(row[y])) {
-          return { 'col': y, 'row': x }
+          return { 'row': x, 'col': y }
         }
       }
     }
-    return null
   }
 
-  // Calls moveOrTurn() with details unique to each direction
+  // Calls moveOrTurn() with details unique to each 2D direction
   function updateGuard() {
     switch (guardDirection) {
       case 0:
         return moveOrTurn(guardCoordinates.row > 0, -1, 0)
       case 1:
-        return moveOrTurn(guardCoordinates.col < gridWidth, 0, 1)
+        return moveOrTurn(guardCoordinates.col + 1 < gridWidth, 0, 1)
       case 2:
-        return moveOrTurn(guardCoordinates.row < gridLength, 1, 0)
+        return moveOrTurn(guardCoordinates.row + 1 < gridLength, 1, 0)
       case 3:
         return moveOrTurn(guardCoordinates.col > 0, 0, -1)
     }
 
     // Helper Function to reduce redundancy in moving/turning the guard; works for any direction
     function moveOrTurn (onGrid, row, col) {
+      if (!onGrid) return false // If the next move exits the grid return false and end the loop
 
       // If the guard doesn't have an obstacle (#) then move the guard,
-      // record the coordinates, and update the coordinates.
+      // record the current coordinates, and then update the coordinates.
       if (onGrid && baseMap[guardCoordinates.row + row][guardCoordinates.col + col] !== '#') {
         guardCoordinates.row += row
         guardCoordinates.col += col
-        allVisitedCoordinates.add(JSON.stringify({ 'col': guardCoordinates.col, 'row': guardCoordinates.row }))
+        allVisitedCoordinates.add(JSON.stringify({ 'row': guardCoordinates.row, 'col': guardCoordinates.col }))
       }
 
       // If there is an obstacle, the guard turns to the right but doesn't move. Direction resets
@@ -83,8 +82,7 @@ document.addEventListener('puzzleInputLoaded', () => {
         guardDirection = guardDirection === 3 ? 0 : guardDirection += 1
       }
 
-      else return false // Final else statement; at this point the guard has left the grid and the loop ends
-      return true // Guard still on grid and movements/turns made/recorded
+      return true // Guard still on grid and move or turn executed
     }
   }
 
