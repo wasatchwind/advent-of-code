@@ -40,7 +40,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     const matchFound = evaluate(combos)
     return matchFound
 
-    // Helper function
+    // Helper function to evaluate (calculate) the equation
     function evaluate(combos) {
       for (const combo of combos) {
         const tokens = combo.split(/([+*])/)
