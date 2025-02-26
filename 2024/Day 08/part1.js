@@ -32,14 +32,16 @@ document.addEventListener('puzzleInputLoaded', () => {
     }
   }
 
-  // Explore both ways along an axis created by 2 antennas with equal distances for antinodes
+  // Explore both ways along an axis created by 2 antennas with equal distances for antinode locations
   function findAntinodes(antenna1, antenna2) {
     const y = antenna2.row - antenna1.row
+    const x = antenna2.col - antenna1.col
+    
     const rowNorth = antenna1.row - y
     const rowSouth = antenna2.row + y
-    const x = antenna2.col - antenna1.col
     const colWest = antenna1.col - x
     const colEast = antenna2.col + x
+    
     registerAntinode(rowNorth, colWest)
     registerAntinode(rowSouth, colEast)
   }
