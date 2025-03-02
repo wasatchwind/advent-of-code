@@ -30,7 +30,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     }
   }
 
-  // Look for valid trail path options in all directions
+  // Function to look for valid trail path options in all directions
   function followTrailOptions(targetElevation, trailheads, row, col) {
     const directions = [[-1, 0], [0, 1], [1, 0], [0, -1]] // North, East, South, West
 
@@ -48,7 +48,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     }
   }
 
-  // Add validated path coordinates to trailheads if not already present
+  // Function to add validated path coordinates to trailheads if not already present
   function addToTrailheads(row, col, newTrailheads) {
     const coordinates = map[row][col]
     for (const trailhead of newTrailheads) {
