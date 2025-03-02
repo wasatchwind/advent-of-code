@@ -15,7 +15,7 @@ document.addEventListener('puzzleInputLoaded', () => {
       if (stones[index] === 0) stones[index] = 1 // Rule 1: replace any stone with "0" as a "1"
       
       // Rule 2: if stone is even, split into 2 halves
-      else if (JSON.stringify(stones[index]).length % 2 === 0) {
+      else if (stones[index].toString().length % 2 === 0) {
         const evenStoneToSplit = stones[index].toString() // Change to string for splitting
         const middleIndex = Math.floor(evenStoneToSplit.length / 2)
         const left = Number(evenStoneToSplit.substring(0, middleIndex))
