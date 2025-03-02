@@ -48,7 +48,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     }
   }
 
-  // Function to add validated path coordinates to trailheads if not already present
+  // Function to add validated trailhead coordinates to trailheads unless already present
   function addToTrailheads(row, col, newTrailheads) {
     const coordinates = map[row][col]
     for (const trailhead of newTrailheads) {
