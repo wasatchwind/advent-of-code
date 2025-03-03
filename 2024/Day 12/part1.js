@@ -28,7 +28,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     let areaSize = 0
     let areaPerimeter = 0
 
-    const perimeterPath = [{ "row": startRow, "col": startCol }]
+    const perimeterPath = [{ 'row': startRow, 'col': startCol }]
     visited[startRow][startCol] = true // Mark coordinate as counted
 
     while (perimeterPath.length > 0) {
