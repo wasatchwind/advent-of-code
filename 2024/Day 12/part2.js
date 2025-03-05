@@ -78,7 +78,7 @@ document.addEventListener('puzzleInputLoaded', () => {
       const NW = isCorner(row - 1, col - 1)
 
       // Outside corner can be verified by checking verical and horizontal components
-      // Inside corner require horizontal and vertical plants of the same type but not the diagonal
+      // Inside corner requires horizontal and vertical plants of the same type but not the diagonal
       if ((W && N) || (!W && NW && !N)) corners++ // NW corner
       if ((E && N) || (!E && NE && !N)) corners++ // NE corner
       if ((E && S) || (!E && SE && !S)) corners++ // SE corner
