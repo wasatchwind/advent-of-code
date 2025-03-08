@@ -2,7 +2,7 @@
 // Use event listener to execute JS after puzzle input is received via text file
 document.addEventListener('puzzleInputLoaded', () => {
 
-  // Day 13 Part 1 answer: 224357412
+  // Day 14 Part 1 answer: 224357412
 
   const robotList = puzzleInput.split('\n').map(line => line.match(/[+-]?\d+/g).map(Number))
   const seconds = 100
