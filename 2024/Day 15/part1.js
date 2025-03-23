@@ -32,27 +32,26 @@ document.addEventListener('puzzleInputLoaded', () => {
 
   // Loop through all movements
   movements.forEach(direction => {
-    let { row, col } = robotLocation
-    let nextPosition = nextMove(direction, row, col)
+    let { row, col } = nextMove(direction, robotLocation.row, robotLocation.col)
 
-    if (warehouse[nextPosition.row][nextPosition.col] === '#') return // Next move is a wall; do nothing
+    if (warehouse[row][col] === '#') return // Next move is a wall; do nothing
 
-    if (warehouse[nextPosition.row][nextPosition.col] === '.') { // Move robot to open spot
+    if (warehouse[row][col] === '.') { // Move robot to open spot
       warehouse[robotLocation.row][robotLocation.col] = '.'
-      warehouse[nextPosition.row][nextPosition.col] = '@'
-      robotLocation = nextPosition
+      warehouse[row][col] = '@'
+      robotLocation = { row, col }
     }
 
     else { // Handle box pushing movement
 
       // Continue looking for open spots between robot and nearest wall
-      while (warehouse[nextPosition.row][nextPosition.col] !== '#') {
-        nextPosition = nextMove(direction, nextPosition.row, nextPosition.col)
+      while (warehouse[row][col] !== '#') {
+        ({ row, col } = nextMove(direction, row, col))
         
         // Fill open spot with a box, mark spot open where robot was, move robot to next spot
         // (replace box currently there to simulate pushing all boxes)
-        if (warehouse[nextPosition.row][nextPosition.col] === '.') {
-          warehouse[nextPosition.row][nextPosition.col] = 'O'
+        if (warehouse[row][col] === '.') {
+          warehouse[row][col] = 'O'
           warehouse[robotLocation.row][robotLocation.col] = '.'
           robotLocation = nextMove(direction, robotLocation.row, robotLocation.col)
           warehouse[robotLocation.row][robotLocation.col] = '@'
