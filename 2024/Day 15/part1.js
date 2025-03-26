@@ -9,7 +9,7 @@ document.addEventListener('puzzleInputLoaded', () => {
   const warehouse = divideInput[0].split('\r\n').map(line => [...line])
   const movements = divideInput[1].split('\r\n').flatMap(line => line.split(''))
 
-  let robotLocation = { 'row': 0, 'col': 0 }
+  let robotLocation = {}
   let sum = 0
 
   // Find initial robot location
