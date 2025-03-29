@@ -39,7 +39,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     }
   }
 
-  // Loop until paths has length of zero as it shrinks via .pop()
+  // Loop until paths has length of zero (end coordinates reached)
   while (paths.length > 0) {
     const { col, row, direction, steps, score } = paths.pop()
 
