@@ -1,4 +1,3 @@
-
 'use strict'
 document.addEventListener('puzzleInputLoaded', () => {
 
@@ -68,5 +67,49 @@ document.addEventListener('puzzleInputLoaded', () => {
     }
   }
 
-  
+  // Part 2
+  // Reverse path to collect all tiles on any optimal path
+  const bestTiles = new Set()
+  const seen = new Set() // seen states (col,row,dir) in reverse walk
+  const reverseQueue = []
+
+  // Start with any end-state directions that have bestScore
+  for (let d of directions) {
+    const tile = `${endCoords.col},${endCoords.row},${d.move}`
+    if (visited.get(tile) !== undefined && visited.get(tile) === bestScore) {
+      reverseQueue.push({ col: endCoords.col, row: endCoords.row, dir: d.move, score: bestScore })
+    }
+  }
+
+  // Work backwards matching the same cost model used in Part 1
+  while (reverseQueue.length > 0) {
+    const { col, row, dir, score } = reverseQueue.pop()
+    const key = `${col},${row},${dir}`
+    if (seen.has(key)) continue
+    seen.add(key)
+    bestTiles.add(`${col},${row}`)
+
+    const idx = directionIndex(dir)
+    const prevCol = col - directions[idx].dc
+    const prevRow = row - directions[idx].dr
+
+    // Consider all possible previous directional possibilities
+    for (let prev of directions) {
+      const prevKey = `${prevCol},${prevRow},${prev.move}`
+      let prevScore = visited.get(prevKey)
+
+      // If prev is the start tile and start state was recorded earlier visited already has it
+      if (prevCol === startCoords.col && prevRow === startCoords.row && prev.move === initialDirection) {
+        prevScore = prevScore === undefined ? 0 : prevScore
+      }
+
+      if (prevScore === undefined) continue
+      const turnCost = rotationCost(prev.move, dir)
+      if (prevScore + 1 + turnCost === score) {
+        reverseQueue.push({ col: prevCol, row: prevRow, dir: prev.move, score: prevScore })
+      }
+    }
+  }
+
+  console.log('Total tiles part of at least one best path:', bestTiles.size)
 })
