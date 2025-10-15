@@ -5,8 +5,8 @@ document.addEventListener('puzzleInputLoaded', () => {
 
   const inputLines = puzzleInput.split('\n');
   let registerA = parseInt(inputLines[0].match(/\d+/));
-  let registerB = 2024;
-  let registerC = 43690;
+  let registerB = 0;
+  let registerC = 0;
   let pointer = 0;
   let output = [];
   const program = (inputLines[4].split(': ')[1]).split(',').map(Number);
@@ -17,8 +17,6 @@ document.addEventListener('puzzleInputLoaded', () => {
     executeInstruction(opcode, operand);
     pointer += 2;
   }
-
-  console.log('The answer is string:', output.join(','))
 
   function executeInstruction(opcode, operand) {
     switch (opcode) {
@@ -54,5 +52,8 @@ document.addEventListener('puzzleInputLoaded', () => {
     if (operand === 6) return registerC;
     return operand;
   }
+
+  document.getElementById('answer').innerText = output.join(',')
+  console.log('The answer is string:', output.join(','))
 
 })
