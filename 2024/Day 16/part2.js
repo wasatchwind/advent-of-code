@@ -111,6 +111,6 @@ document.addEventListener('puzzleInputLoaded', () => {
     }
   }
 
-  document.getElementById('answer').innerText = bestTiles.size)
+  document.getElementById('answer').innerText = bestTiles.size
   console.log('Total tiles part of at least one best path:', bestTiles.size)
 })
