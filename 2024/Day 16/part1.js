@@ -67,6 +67,6 @@ document.addEventListener('puzzleInputLoaded', () => {
     }
   }
 
-  document.getElementById('answer').innerText = bestScore)
+  document.getElementById('answer').innerText = bestScore
   console.log('The lowest score possible is', bestScore)
 })
