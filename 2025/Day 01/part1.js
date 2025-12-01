@@ -21,7 +21,7 @@ document.addEventListener('puzzleInputLoaded', () => {
       ? mod100(dialPosition - distance)  // Rotate dial left
       : mod100(dialPosition + distance); // Rotate dial right
 
-    if (dialPosition === 0) zeroCounter++;
+    if (dialPosition === 0) zeroCounter++; // Count zero positions for when the dial lands exactly on zero
   }
 
   document.getElementById("answer").innerText = zeroCounter
