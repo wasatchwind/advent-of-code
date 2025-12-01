@@ -12,12 +12,11 @@ document.addEventListener('puzzleInputLoaded', () => {
       return { direction, distance: Number(num) };
     });
 
-  let dialPosition = 50;
-  let zeroCounter = 0;
-
-  const mod100 = n => ((n % 100) + 100) % 100; // Force dialPosition to a possible dial value (0 to 99)
+  let dialPosition = 50, zeroCounter = 0;
 
   for (const { direction, distance } of moves) {
+    const mod100 = n => ((n % 100) + 100) % 100; // Force dialPosition to a possible dial value (0 to 99)
+
     dialPosition = direction === "L"
       ? mod100(dialPosition - distance)  // Rotate dial left
       : mod100(dialPosition + distance); // Rotate dial right
