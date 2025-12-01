@@ -9,7 +9,7 @@ document.addEventListener('puzzleInputLoaded', () => {
     .split("\n")
     .map(line => {
       const [, direction, num] = line.match(/([LR])(\d+)/); // Extract "L" or "R" and number
-      return { direction, distance: Number(num) % 100 };    // If triple digit, remove first digit since each 100 repeats the loop
+      return { direction, distance: Number(num) };
     });
 
   let dialPosition = 50;
