@@ -24,9 +24,9 @@ document.addEventListener('puzzleInputLoaded', () => {
   function checkValidity(num) {
     const string = String(num); // Convert to string to compare digits
     const length = string.length;
-    if (length % 2 !== 0) return false; // Only even number of digits can be invalid
+    if (length % 2 !== 0) return false; // Only an even number of digits can be invalid
     const half = length / 2;
-    return string.slice(0, half) === string.slice(half); // If invalid, return it to be counted
+    return string.slice(0, half) === string.slice(half); // Count it if it's invalid
   }
 
   document.getElementById("answer").innerText = sum;
