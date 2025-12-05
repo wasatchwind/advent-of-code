@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 // Use event listener to execute JS after puzzle input is received via text file
-document.addEventListener('puzzleInputLoaded', () => {
+document.addEventListener("puzzleInputLoaded", () => {
 
   // Day 2 Part 2 answer: 44143124633
 
   // Parse input into usable data
   const idRanges = puzzleInput
     .trim()
-    .split(',')
+    .split(",")
     .map(line => {
-      const [start, end] = line.split('-').map(Number);
+      const [start, end] = line.split("-").map(Number);
       return { start, end };
     });
 
