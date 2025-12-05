@@ -20,7 +20,7 @@ document.addEventListener('puzzleInputLoaded', () => {
   // r for rows, c for columns
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
-      if (grid[r][c] === ".") continue; // Skip to next since this isn't a roll
+      if (grid[r][c] !== "@") continue; // Skip to next coordinates since this isn't a roll
 
       let countAdjacent = 0;
 
