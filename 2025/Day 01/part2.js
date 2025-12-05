@@ -20,8 +20,8 @@ document.addEventListener("puzzleInputLoaded", () => {
     const mod100 = n => ((n % 100) + 100) % 100; // Force dial position to a real dial value (0 to 99)
     const partial = distance % 100;
     const newPosition = direction === "L" ? dialPosition - partial : dialPosition + partial;
-    const zeroExact = direction === 'L' ? 0 : 100;
-    const zeroCrossed = direction === 'L' ? newPosition < 0 : newPosition > 100;
+    const zeroExact = direction === "L" ? 0 : 100;
+    const zeroCrossed = direction === "L" ? newPosition < 0 : newPosition > 100;
 
     if (newPosition === zeroExact) dialPosition = 0;
     else {
