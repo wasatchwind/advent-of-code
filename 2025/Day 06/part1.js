@@ -24,11 +24,8 @@ document.addEventListener("puzzleInputLoaded", () => {
 
     // Loop through each column now row by row
     for (let row = 0; row < lines.length - 1; row++) {
-      if (operator === "+") {
-        problemResult += lines[row][col];
-      } else {
-        problemResult *= lines[row][col];
-      }
+      if (operator === "+") problemResult += lines[row][col];
+      else problemResult *= lines[row][col];
     }
     grandTotal += problemResult;
   }
