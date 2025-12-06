@@ -39,7 +39,7 @@ document.addEventListener("puzzleInputLoaded", () => {
 
   merged.push([min, max]); // Add last interval to merged
 
-
+  // Sum up all the fresh ingredient ids
   for (const [start, end] of merged) {
     totalFreshIngredientIds += (end - start + 1);
   }
