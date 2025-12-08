@@ -6,7 +6,7 @@ document.addEventListener("puzzleInputLoaded", () => {
   // Day 7 Part 1 answer: 1562
 
   // Parse input into individual lines (rows)
-  const grid = puzzleInput.split("\n").map(line => line.trim())
+  const grid = puzzleInput.split("\n").map(line => line.trim());
 
   const beamCols = new Set();            // Use a set to track unique beams since they can be combined/merged
   const startCol = grid[0].indexOf("S"); // The start column of the initial beam
