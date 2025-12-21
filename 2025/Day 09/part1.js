@@ -10,14 +10,16 @@ document.addEventListener("puzzleInputLoaded", () => {
 
   // Loop through all pair combos since only pairs are necessary to determine a rectangle (opposing corners)
   for (let i = 0; i < coords.length; i++) {
-    const [x1, y1] = coords[i];
-
     for (let j = i + 1; j < coords.length; j++) {
-      const [x2, y2] = coords[j];
-      const area = (Math.abs(x2 - x1) + 1) * (Math.abs(y2 - y1) + 1)
+      const rect = [coords[i], coords[j]];
+      const area = rectArea(rect);
 
       if (area > maxArea) maxArea = area;
     }
+  }
+
+  function rectArea([[x1, y1], [x2, y2]]) {
+    return (Math.abs(x2 - x1) + 1) * (Math.abs(y2 - y1) + 1);
   }
 
   document.getElementById("answer").innerText = maxArea;
